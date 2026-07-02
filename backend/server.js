@@ -25,19 +25,17 @@ app.get("/test-python", async(req, res) => {
     }
 });
 
-app.post('/profile', (req, res) => {
-
-    const goal = req.body.goal;
-    const learningStyle = req.body.learningStyle;
-
-    console.log(goal);
-    console.log(learningStyle);
-    
-    res.json({
-        message: "Profile recived successfully"});
+app.post('/profile', async (req, res) => {
+    try {
+        const response = await axios.post("http://127.0.0.1:8000/remember-profile", req.body);
+        res.json(response.data);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).json({
+            message: "Could not connect to Python Server"
+        });
+    }
 });
-
-
 
 app.listen(3000, () => {
     console.log("Learning Coach Backend is Running");
