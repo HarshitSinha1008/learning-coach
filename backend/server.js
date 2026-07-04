@@ -1,8 +1,10 @@
 const express = require('express');
 const axios = require('axios');
+const cors = require('cors');
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
@@ -18,7 +20,7 @@ app.get("/test-python", async(req, res) => {
         const response = await axios.get("http://127.0.0.1:8000/");
         res.json(response.data);
     }catch (error) {
-        console.error(error);
+        console.error(error.message);
         res.status(500).json({
             message: "Could not connect to Python Server"
         });
@@ -32,7 +34,7 @@ app.post('/profile', async (req, res) => {
     } catch (error) {
         console.error(error.message);
         res.status(500).json({
-            message: "Could not connect to Python Server"
+            message: error.response?.data || error.message
         });
     }
 });
@@ -47,7 +49,7 @@ app.post("/chat", async (req, res) => {
 
         res.json(response.data);
     }catch (error) {
-        console.error(error);
+        console.error(error.message);
         res.status(500).json({
             message: "Could not connect to Python Server"
         });
