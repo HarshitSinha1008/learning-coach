@@ -4,28 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Learning Coach</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class = "hero">
-        <h1>AI Learning Coach</h1>
-        
-        <p class = "tagline">
+
+    <div class="bg-mesh" aria-hidden="true"></div>
+
+    <nav>
+        <a class="logo" href="#">
+            <span class="logo-dot"></span>
+            Learning Coach
+        </a>
+        <ul class="nav-links">
+            <li><a href="#">Features</a></li>
+            <li><a href="#">How it works</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+
+        <div class="orb" aria-hidden="true">
+            <div class="orb-ring"></div>
+            <div class="orb-ring"></div>
+            <div class="orb-ring"></div>
+            <div class="orb-core"></div>
+        </div>
+
+        <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Adaptive AI Tutoring
+        </div>
+
+        <h1>Learn smarter, <em>not harder</em></h1>
+
+        <p class="tagline">
             Your personal AI-powered learning companion, designed to help you master new skills and knowledge efficiently.
         </p>
 
-        <p class = "description">
-            Learn smarter with an AI that remembers your goals,
-            understands your learning style, and grows with you.
+        <p class="description">
+            An AI that remembers your goals, understands your learning style, and grows with you — session after session.
         </p>
 
-        <button id = "startBtn">
-            Get Started ->
-        </button>
+        <div class="cta-group">
+            <button class="btn-primary" id="startBtn">
+                Get Started
+                <span>→</span>
+            </button>
+        </div>
 
+    </section>
+
+    <div class="stats">
+        <div class="stat">
+            <span class="stat-value">Persistent</span>
+            <span class="stat-label">Memory across sessions</span>
+        </div>
+        <div class="stat">
+            <span class="stat-value">Adaptive</span>
+            <span class="stat-label">Learns your style</span>
+        </div>
+        <div class="stat">
+            <span class="stat-value">Instant</span>
+            <span class="stat-label">Feedback & explanations</span>
+        </div>
     </div>
 
-    <script src = "script.js"></script>
-    
+    <script src="script.js"></script>
 </body>
 </html>

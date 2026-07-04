@@ -3,55 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Setup</title>
-
-    <link rel="stylesheet" href="style.css">
+    <title>Profile Setup – AI Learning Coach</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="profile.css">
 </head>
 <body>
 
-<div class="container">
+    <div class="bg-mesh" aria-hidden="true"></div>
 
-    <div class="card">
+    <nav>
+        <a class="logo" href="index.html">
+            <span class="logo-dot"></span>
+            Learning Coach
+        </a>
+        <span class="nav-step">Step 1 of 1</span>
+    </nav>
 
-        <h2>Let's Get Started</h2>
+    <div class="container">
+        <div class="card">
 
-        <p class="subtitle">
-            Tell us a little about yourself.
-        </p>
+            <div class="card-eyebrow">
+                <span class="eyebrow-dot"></span>
+                Profile Setup
+            </div>
 
-        <input
-            id="goal"
-            type="text"
-            placeholder="Your learning goal"
-        >
+            <h2>Let's get started</h2>
+            <p class="subtitle">Tell us a little about yourself so we can personalise your experience.</p>
 
-        <select id="learningStyle">
+            <div class="field">
+                <label for="goal">Learning goal</label>
+                <input
+                    id="goal"
+                    type="text"
+                    placeholder="e.g. Master Python in 30 days"
+                    autocomplete="off"
+                >
+            </div>
 
-            <option>Visual</option>
-            <option>Reading</option>
-            <option>Practical</option>
-            <option>Mixed</option>
+            <div class="field-row">
 
-        </select>
+                <div class="field">
+                    <label for="learningStyle">Learning style</label>
+                    <div class="select-wrap">
+                        <select id="learningStyle">
+                            <option value="visual">Visual</option>
+                            <option value="reading">Reading</option>
+                            <option value="practical">Practical</option>
+                            <option value="mixed">Mixed</option>
+                        </select>
+                        <span class="select-arrow">↓</span>
+                    </div>
+                </div>
 
-        <select id="preferredExplanation">
+                <div class="field">
+                    <label for="preferredExplanation">Explanation style</label>
+                    <div class="select-wrap">
+                        <select id="preferredExplanation">
+                            <option value="examples">Examples</option>
+                            <option value="step-by-step">Step-by-step</option>
+                            <option value="detailed">Detailed</option>
+                            <option value="short">Short</option>
+                        </select>
+                        <span class="select-arrow">↓</span>
+                    </div>
+                </div>
 
-            <option>Examples</option>
-            <option>Step-by-step</option>
-            <option>Detailed</option>
-            <option>Short</option>
+            </div>
 
-        </select>
+            <button id="saveProfile">
+                Save &amp; Continue
+                <span class="btn-arrow">→</span>
+            </button>
 
-        <button id="saveProfile">
-            Save Profile
-        </button>
-
+        </div>
     </div>
 
-</div>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>

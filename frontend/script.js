@@ -28,6 +28,9 @@ if (saveBtn) {
 
         try {
 
+            saveBtn.textContent = "Saving...";
+            saveBtn.disabled = true;    
+
             const response = await fetch("http://localhost:3000/profile", {
 
                 method: "POST",
@@ -42,6 +45,9 @@ if (saveBtn) {
 
             const data = await response.json();
 
+            saveBtn.textContent = "Save & Continue";
+            saveBtn.disabled = false;
+
             alert(data.message);
 
             window.location.href = "chat.html";
@@ -50,7 +56,10 @@ if (saveBtn) {
 
             console.error(error);
 
-            alert("Could not save profile.");
+            saveBtn.textContent = "Save & Continue";
+            saveBtn.disabled = false;
+
+            alert("AI service is currently busy. Please try again later.");
 
         }
 
