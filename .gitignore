@@ -1,2 +1,10 @@
 # Node.js
 backend/node_modules/
+
+# Python
+memory-service/.env
+memory-service/venv/
+memory-service/__pycache__/
+
+# Python cache
+*.pyc

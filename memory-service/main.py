@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from memory import remember_profile, recall_memory
 
 app = FastAPI()
 
@@ -9,17 +10,31 @@ def home():
     }
 
 @app.post("/remember-profile")
-def remember_profile(profile: dict):
+async def remember_profile_api(profile: dict):
 
     goal = profile["goal"]
     learning_style = profile["learningStyle"]
     preferred_explanation = profile["preferredExplanation"]
 
-    print("Goal:", goal)
-    print("Learning Style:", learning_style)
-    print("Preferred Explanation:", preferred_explanation)
+    await remember_profile(
+        goal,
+        learning_style,
+        preferred_explanation
+    )
 
     return {
         "status": "success",
         "message": "Profile stored successfully"
+    }
+
+@app.post("/recall")
+async def recall_api(query: dict):
+
+    question = query["question"]
+
+    result = await recall_memory(question)
+
+    return {
+        "status": "success",
+        "result": result
     }

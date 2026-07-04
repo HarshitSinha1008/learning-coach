@@ -37,6 +37,23 @@ app.post('/profile', async (req, res) => {
     }
 });
 
+app.post("/chat", async (req, res) => {
+    
+    try {
+        const response = await axios.post(
+            "http://127.0.0.1:8000/recall",
+            req.body
+        );
+
+        res.json(response.data);
+    }catch (error) {
+        console.error(error);
+        res.status(500).json({
+            message: "Could not connect to Python Server"
+        });
+    }
+})
+
 app.listen(3000, () => {
     console.log("Learning Coach Backend is Running");
 });
