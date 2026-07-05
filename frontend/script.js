@@ -29,19 +29,20 @@ if (saveBtn) {
         try {
 
             saveBtn.textContent = "Saving...";
-            saveBtn.disabled = true;    
+            saveBtn.disabled = true;
 
             const response = await fetch("http://localhost:3000/profile", {
-
                 method: "POST",
-
                 headers: {
                     "Content-Type": "application/json"
                 },
-
                 body: JSON.stringify(profile)
-
             });
+
+            // ⭐ IMPORTANT
+            if (!response.ok) {
+                throw new Error("Profile could not be saved.");
+            }
 
             const data = await response.json();
 
@@ -60,7 +61,6 @@ if (saveBtn) {
             saveBtn.disabled = false;
 
             alert("AI service is currently busy. Please try again later.");
-
         }
 
     });

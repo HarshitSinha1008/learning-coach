@@ -1,11 +1,13 @@
 import cognee
 
-async def remember_profile(goal, learning_style, preffered_explanation):
+async def remember_profile(goal, learning_style, preferred_explanation):
+
+    await cognee.forget(everything=True)
 
     text = f"""
     Student Goal: {goal}
     Learning Style: {learning_style}
-    Preferred Explanation: {preffered_explanation}
+    Preferred Explanation: {preferred_explanation}
     """
 
     await cognee.remember(text)

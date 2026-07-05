@@ -28,15 +28,29 @@ app.get("/test-python", async(req, res) => {
 });
 
 app.post('/profile', async (req, res) => {
+
     try {
-        const response = await axios.post("http://127.0.0.1:8000/remember-profile", req.body);
+
+        const response = await axios.post(
+            "http://127.0.0.1:8000/remember-profile",
+            req.body,
+            {
+                timeout: 60000
+            }
+        );
+
         res.json(response.data);
+
     } catch (error) {
+
         console.error(error.message);
+
         res.status(500).json({
-            message: error.response?.data || error.message
+            message: "AI service is currently unavailable."
         });
+
     }
+
 });
 
 app.post("/chat", async (req, res) => {
